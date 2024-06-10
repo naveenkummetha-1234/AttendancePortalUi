@@ -1,0 +1,128 @@
+<h1>Register Form</h1>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form [formGroup]="registerform" (ngSubmit)=" PostRegister()">
+                <div class="mb-3">
+                    <label class="form-label">Id</label>
+                <input type="number" class="form-control" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">RollNo</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">StandardName</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">DivisionName</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mobile</label>
+                    <input type="number" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">DOB</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Address</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">City</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Pincode</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">GenderId</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">filename</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">filepath</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">UserName</label>
+                    <input type="text" class="form-control"  />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password</label>
+                    <input type="pswd" class="form-control"  />
+                </div>
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  <div class="container d-flex justify-content-center mt-5">
+    <table class="table mx-auto">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>RollNo</th>
+                <th>Name</th>
+                <th>StandardName</th>
+                <th>DivisionName</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>DOB</th>
+                <th>Address</th>
+                <th>City</th>
+                <th>Pincode</th>
+                <th>GenderId</th>
+                <th>FileName</th>
+                <th>FilePath</th>
+                <th>UserName</th>
+                <th>Password</th>
+                <th>Actions</th>
+
+            
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of registerdata">
+                <td>{{u.id}}</td>
+                <td>{{u.rollNo}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.standardName}}</td>
+                <td>{{u.divisionName}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.mobile}}</td>
+                <td>{{u.dob}}</td>
+               <td>{{u.address}}</td>
+                <td>{{u.city}}</td>
+                <td>{{u.pincode}}</td>
+                <td>{{u.genderId}}</td>
+                <td>{{u.fileName}}</td>
+                <td>{{u.filePath}}</td>
+                <td>{{u.userName}}</td>
+                <td>{{u.password}}</td>
+        
+                <td>
+                    <button (click)="deleleRegister(u.id)" class="btn btn-danger mb-3">Delete</button>
+                   <button type="button" (click)="EditRegisterById(u)" class="btn btn-primary mb-3">Edit</button>
+                     
+  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>

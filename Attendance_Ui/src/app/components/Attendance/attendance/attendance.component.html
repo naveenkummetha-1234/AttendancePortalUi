@@ -1,0 +1,80 @@
+
+<p>state works!</p>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form [formGroup]="attendanceform" (ngSubmit)="SubmitAttendance()">
+                <div class="mb-3">
+                    <label class="form-label">Id</label>
+                    <input type="number" class="form-control" [(ngModel)]="Attendance.id" formControlName="id" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">RollNo</label>
+                    <input type="text" class="form-control" [(ngModel)]="Attendance.rollno" formControlName="rollno" />
+                </div>
+            
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="Attendance.name" formControlName="name" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Date</label>
+                    <input type="text" class="form-control" [(ngModel)]="Attendance.date" formControlName="date" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Status</label>
+                    <input type="text" class="form-control" [(ngModel)]="Attendance.status" formControlName="status" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">StaffName</label>
+                    <input type="text" class="form-control" [(ngModel)]="Attendance.staffname" formControlName="staffname" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Edate</label>
+                    <input type="text" class="form-control" [(ngModel)]="Attendance.edate" formControlName="edate" />
+                </div>
+                
+             
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  <div class="container d-flex justify-content-center mt-5">
+    <table class="table mx-auto">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>RollNo</th>
+                <th>Name</th>
+                <th>Date</th>
+                <th>status</th>
+                <th>StaffName</th>
+                <th>Edate</th>
+                
+                
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of attendancedata">
+                <td>{{u.id}}</td>
+                <td>{{u.rollNo}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.date}}</td>
+                <td>{{u.status}}</td>
+                <td>{{u.staffName}}</td>
+                <td>{{u.edate}}</td>
+
+                <td>
+                    <button (click)="deleteAttendance(u.id)" class="btn btn-danger mb-3">Delete</button>
+                    <button type="button" (click)="EditAttendanceById(u)" class="btn btn-primary mb-3">Edit</button>
+  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+

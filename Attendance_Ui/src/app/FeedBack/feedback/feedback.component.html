@@ -1,0 +1,68 @@
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form [formGroup]="feedbackform" (ngSubmit)="SubmitFeedBack()">
+                <div class="mb-3">
+                    <label class="form-label">Id</label>
+                    <input type="number" class="form-control" [(ngModel)]="FeedBack.id" formControlName="id" />
+                </div>
+            
+                <div class="mb-3">
+                    <label class="form-label">Email</label>
+                    <input type="text" class="form-control" [(ngModel)]="FeedBack.email" formControlName="email" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Mobile</label>
+                    <input type="number" class="form-control" [(ngModel)]="FeedBack.mobile" formControlName="mobile" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">feedback</label>
+                    <input type="feedback" class="form-control" [(ngModel)]="FeedBack.feedback" formControlName="feedback" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Edate</label>
+                    <input type="text" class="form-control" [(ngModel)]="FeedBack.edate" formControlName="edate" />
+                </div>
+                
+             
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  <div class="container d-flex justify-content-center mt-5">
+    <table class="table mx-auto">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Feedback</th>
+                <th>Edate</th>
+                
+                
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of feedbackdata">
+                <td>{{u.id}}</td>
+                <td>{{u.email}}</td>
+                <td>{{u.mobile}}</td>
+                <td>{{u.feedback}}</td>
+                <td>{{u.edate}}</td>
+
+                <td>
+                    <button (click)="deleteFeedBack(u.id)" class="btn btn-danger mb-3">Delete</button>
+                    <button type="button" (click)="EditFeedBackById(u)" class="btn btn-primary mb-3">Edit</button>
+  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
+

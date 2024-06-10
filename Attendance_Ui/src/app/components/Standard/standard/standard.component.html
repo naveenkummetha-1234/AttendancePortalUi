@@ -1,0 +1,41 @@
+<p>standard works!</p>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form [formGroup]="standardform" (ngSubmit)="SubmitStandard()">
+                <div class="mb-3">
+                    <label class="form-label">Id</label>
+                    <input type="number" class="form-control" [(ngModel)]="Standard.id" formControlName="id" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="Standard.name" formControlName="name" />
+                </div>
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  <div class="container d-flex justify-content-center mt-5">
+    <table class="table mx-auto">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of standarddata">
+                <td>{{u.id}}</td>
+                <td>{{u.name}}</td>
+                <td>
+                    <button (click)="deleteStandard(u.id)" class="btn btn-danger mb-3">Delete</button>
+                    <button type="button" (click)="EditStandardById(u)" class="btn btn-primary mb-3">Edit</button>
+  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>

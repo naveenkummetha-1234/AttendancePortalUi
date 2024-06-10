@@ -1,0 +1,81 @@
+
+
+<p>state works!</p>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form [formGroup]="complainform" (ngSubmit)="SubmitComplain()">
+                <div class="mb-3">
+                    <label class="form-label">Id</label>
+                    <input type="number" class="form-control" [(ngModel)]="Complain.id" formControlName="id" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">RollNo</label>
+                    <input type="text" class="form-control" [(ngModel)]="Complain.rollno" formControlName="rollno" />
+                </div>
+            
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="Complain.name" formControlName="name" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Subject</label>
+                    <input type="text" class="form-control" [(ngModel)]="Complain.subject" formControlName="subject" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <input type="text" class="form-control" [(ngModel)]="Complain.message" formControlName="message" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Reply</label>
+                    <input type="text" class="form-control" [(ngModel)]="Complain.reply" formControlName="reply" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Edate</label>
+                    <input type="text" class="form-control" [(ngModel)]="Complain.edate" formControlName="edate" />
+                </div>
+                
+             
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  <div class="container d-flex justify-content-center mt-5">
+    <table class="table mx-auto">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>RollNo</th>
+                <th>Name</th>
+                <th>Subject</th>
+                <th>Message</th>
+                <th>Reply</th>
+                <th>Edate</th>
+                
+                
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of complaindata">
+                <td>{{u.id}}</td>
+                <td>{{u.rollNo}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.subject}}</td>
+                <td>{{u.message}}</td>
+                <td>{{u.reply}}</td>
+                <td>{{u.edate}}</td>
+
+                <td>
+                    <button (click)="deleteComplain(u.id)" class="btn btn-danger mb-3">Delete</button>
+                    <button type="button" (click)="EditComplainById(u)" class="btn btn-primary mb-3">Edit</button>
+  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+

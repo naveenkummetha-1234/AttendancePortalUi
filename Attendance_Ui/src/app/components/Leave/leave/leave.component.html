@@ -1,0 +1,86 @@
+
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form [formGroup]="leaveform" (ngSubmit)="SubmitLeave()">
+                <div class="mb-3">
+                    <label class="form-label">Id</label>
+                    <input type="number" class="form-control" [(ngModel)]="Leave.id" formControlName="id" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">RollNo</label>
+                    <input type="text" class="form-control" [(ngModel)]="Leave.rollno" formControlName="rollno" />
+                </div>
+            
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="Leave.name" formControlName="name" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">StudentName</label>
+                    <input type="text" class="form-control" [(ngModel)]="Leave.studentname" formControlName="studentname" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Message</label>
+                    <input type="text" class="form-control" [(ngModel)]="Leave.message" formControlName="message" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Nodays</label>
+                    <input type="text" class="form-control" [(ngModel)]="Leave.nodays" formControlName="nodays" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Reply</label>
+                    <input type="text" class="form-control" [(ngModel)]="Leave.replay" formControlName="replay" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Edate</label>
+                    <input type="text" class="form-control" [(ngModel)]="Leave.edate" formControlName="edate" />
+                </div>
+                
+             
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  <div class="container d-flex justify-content-center mt-5">
+    <table class="table mx-auto">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>RollNo</th>
+                <th>Name</th>
+                <th>StudentName</th>
+                <th>Message</th>
+                <th>Nodays</th>
+                
+                <th>Reply</th>
+                <th>Edate</th>
+                
+                
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of leavedata">
+                <td>{{u.id}}</td>
+                <td>{{u.rollNo}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.stduentName}}</td>
+                <td>{{u.message}}</td>
+                <td>{{u.nodays}}</td>
+                <td>{{u.replay}}</td>
+                <td>{{u.edate}}</td>
+
+                <td>
+                    <button (click)="deleteLeave(u.id)" class="btn btn-danger mb-3">Delete</button>
+                    <button type="button" (click)="EditLeaveById(u)" class="btn btn-primary mb-3">Edit</button>
+  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+

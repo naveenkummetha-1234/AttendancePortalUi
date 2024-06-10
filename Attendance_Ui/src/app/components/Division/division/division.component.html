@@ -1,0 +1,61 @@
+<p>state works!</p>
+<div class="container d-flex justify-content-center align-items-center mt-5">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <form [formGroup]="divisionform" (ngSubmit)="SubmitDivision()">
+                <div class="mb-3">
+                    <label class="form-label">Id</label>
+                    <input type="number" class="form-control" [(ngModel)]="Division.id" formControlName="id" />
+                </div>
+            
+                <div class="mb-3">
+                    <label class="form-label">Name</label>
+                    <input type="text" class="form-control" [(ngModel)]="Division.name" formControlName="name" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Seat</label>
+                    <input type="number" class="form-control" [(ngModel)]="Division.seat" formControlName="seat" />
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">StandardId</label>
+                    <input type="number" class="form-control" [(ngModel)]="Division.standardid" formControlName="standardid" />
+                </div>
+                
+             
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+            </form>
+        </div>
+    </div>
+  </div>
+  
+  <div class="container d-flex justify-content-center mt-5">
+    <table class="table mx-auto">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Seat</th>
+                <th>StandardId</th>
+                
+                
+                
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let u of divisiondata">
+                <td>{{u.id}}</td>
+                <td>{{u.name}}</td>
+                <td>{{u.seat}}</td>
+                <td>{{u.standardId}}</td>
+
+                <td>
+                    <button (click)="deleteDivision(u.id)" class="btn btn-danger mb-3">Delete</button>
+                    <button type="button" (click)="EditDivisionById(u)" class="btn btn-primary mb-3">Edit</button>
+  
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+
